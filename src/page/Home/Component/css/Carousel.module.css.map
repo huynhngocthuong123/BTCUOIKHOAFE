@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,CAAA;EACR,gBAAgB,EAAE,6CAA6C;CAIlE;;AALD,AAEI,YAFQ,CAER,WAAW,CAAA;EACP,KAAK,EAAE,GAAG;CACb",
+    "sources": [
+        "../Carousel/Carousel.module.scss"
+    ],
+    "names": [],
+    "file": "Carousel.module.css"
+}
