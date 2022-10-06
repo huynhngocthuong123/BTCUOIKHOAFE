@@ -1,12 +1,12 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import "./ListDoanhMuc.scss"
-import { GetKhoaHocAction } from '../../../../Redux/action/ListKhoaHocAction'
+import { GetDoanhMucAction } from '../../../../Redux/action/ListKhoaHocAction'
 
 export default function ListDoanhMuc() {
     let [doanhMuc, setDoanhMuc] = useState([])
     useEffect(() => {
-        GetKhoaHocAction(setDoanhMuc)
+        GetDoanhMucAction(setDoanhMuc)
     }, [])
     console.log(doanhMuc, "lấy thành công")
     const RenderListDM = () => {
@@ -25,10 +25,8 @@ export default function ListDoanhMuc() {
         <Fragment>
             <div className="list__dm">
                 <h1 className='title-content text-center pt-10 pb-10'>DANH MỤC ĐÀO TẠO</h1>
-
                 <div className='ListDM xl:container mx-auto grid grid-cols-6'>
                     {RenderListDM()}
-
                 </div >
             </div>
         </Fragment>
