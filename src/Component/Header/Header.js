@@ -2,6 +2,8 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { NavLink, Outlet } from 'react-router-dom'
+import { FILTER_COURSE } from '../../Redux/action/typeAction/courseType'
+import { useDispatch } from 'react-redux'
 
 const navigation = [
     { name: 'Dashboard Admin', href: '#', current: true },
@@ -15,6 +17,7 @@ function classNames(...classes) {
 }
 
 export default function Header() {
+    const dispatch = useDispatch()
     return (
         <Disclosure as="nav" className="bg-gray-800">
             {({ open }) => (
@@ -49,7 +52,15 @@ export default function Header() {
                                     <div className="flex space-x-4">
                                         <NavLink className="text-white" to="/admin">Dashboard Admin</NavLink>
                                         <NavLink className="text-white" to="/">Home</NavLink>
-                                        <NavLink className="text-white" to="/contact">Contact</NavLink>
+                                        <NavLink onClick={() => {
+                                            dispatch({
+                                                type: FILTER_COURSE,
+                                                key: "all"
+                                            })
+                                        }} className="text-white" to={{
+                                            pathname: "course",
+                                            search: "?course=all"
+                                        }}>Course</NavLink>
                                         <NavLink className="text-white" to="/about">About Us</NavLink>
                                     </div>
                                 </div>

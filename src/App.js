@@ -6,20 +6,18 @@ import './App.css';
 import Header from './Component/Header/Header.js';
 import { HomeTemplate } from './Template/HomeTemplate';
 import Home from './page/Home/Home';
-import Contact from './page/Contact/Contact';
+import Course from './page/Course/Course';
+import Carousel from './page/Home/Component/Carousel/Carousel';
 
 export const history = createBrowserHistory();
 function App() {
   return (
     <Router history={history} >
+      <Header />
       <Routes>
-        <Route exact path="/" element={<Home />} >
-          <Route exact path="/contact" element={<Contact />} />
-        </Route>
-        {/* </Routes> */}
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/course" element={<Course />} />
       </Routes>
-      {/* <Header /> */}
-      {/* <Home /> */}
     </Router >
   );
 }

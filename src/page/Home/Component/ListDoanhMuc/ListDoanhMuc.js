@@ -1,17 +1,27 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import "./ListDoanhMuc.scss"
-import { GetDoanhMucAction } from '../../../../Redux/action/ListKhoaHocAction'
+import { GetDoanhMucAction, GetKhoaHocAction } from '../../../../Redux/action/ListKhoaHocAction'
+import { useDispatch, useSelector } from 'react-redux'
+import { FILTER_COURSE } from '../../../../Redux/action/typeAction/courseType'
 
 export default function ListDoanhMuc() {
+    const dispatch = useDispatch()
     let [doanhMuc, setDoanhMuc] = useState([])
     useEffect(() => {
         GetDoanhMucAction(setDoanhMuc)
     }, [])
-    console.log(doanhMuc, "lấy thành công")
     const RenderListDM = () => {
         return doanhMuc.map((item, index) => {
-            return <NavLink className="item_list" to={`/${item.maDanhMuc}`} key={index}>
+            return <NavLink onClick={() => {
+                dispatch({
+                    type: FILTER_COURSE,
+                    key: item?.maDanhMuc
+                })
+            }} className="item_list" to={{
+                pathname: '/course',
+                search: `?course=${item.maDanhMuc}`,
+            }} key={index}>
                 <div className="overflow_item">
                     <img src={`./img/imgListKH/${index + 1}.jpg`} alt="" />
                     <div className="text_content">
