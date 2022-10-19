@@ -8,6 +8,7 @@ import ListKhoaHoc from './Component/ListKhoaHoc/ListKhoaHoc'
 export default function Home() {
     return (
         <div className=''>
+            <Header />
             <Carousel />
             <ListDoanhMuc />
             <ListKhoaHoc />

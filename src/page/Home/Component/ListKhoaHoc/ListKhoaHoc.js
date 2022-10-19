@@ -2,8 +2,8 @@ import React, { Fragment, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { GetKhoaHocAction } from '../../../../Redux/action/ListKhoaHocAction'
 import ItemListKhoaHoc from './ItemListKhoaHoc/ItemListKhoaHoc'
-import { courseReducer } from '../../../../Redux/Reducers/CourseReducer'
 import "./ListKhoaHoc.scss"
+import courseReducer from '../../../../Redux/Reducers/CourseReducer'
 
 export default function ListKhoaHoc() {
     const dispatch = useDispatch()

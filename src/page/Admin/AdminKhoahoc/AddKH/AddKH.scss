@@ -1,0 +1,17 @@
+.btn-submit {
+    background-color: green;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 180px;
+    &:hover {
+        background-color: rgb(14, 171, 14);
+        transition: all .5;
+    }
+}
+
+.ant-modal-footer {
+    display: none;
+}
