@@ -1,7 +1,8 @@
+import React from 'react'
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { NavLink, Outlet } from 'react-router-dom'
+import { Link, NavLink, Outlet } from 'react-router-dom'
 
 const navigation = [
     { name: 'Dashboard Admin', href: '#', current: true },
@@ -57,8 +58,8 @@ export default function Header() {
                             {/* 
                             if login User */}
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                                <button className='mr-4 text-white hover:text-yellow-300'>Đăng Ký</button>
-                                <button className='text-white hover:text-yellow-300'>Đăng Nhập</button>
+                                <Link to='/register' className='mr-4 text-white hover:text-yellow-300'>Đăng Ký</Link>
+                                <Link to='/login' className='text-white hover:text-yellow-300'>Đăng Nhập</Link>
 
                                 {/* <button
                                     type="button"

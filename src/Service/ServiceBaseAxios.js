@@ -1,5 +1,6 @@
 import axios from "axios"
 import { TOKEN, URL_API } from "../Util/setting"
+import { ACCESS_TOKEN } from '../Redux/action/Type/UserType'
 
 
 export default class ServiceBaseAxios {
@@ -12,4 +13,28 @@ export default class ServiceBaseAxios {
             }
         })
     }
+
+    POST = (url, thongtin) => {
+        return axios({
+            method: "post",
+            url: `${URL_API}/${url}`,
+            data: thongtin,
+            headers: {
+                TokenCybersoft: TOKEN,
+                "Authorization": 'Bearer ' + localStorage.getItem(ACCESS_TOKEN)
+            },
+        });
+    };
+
+    PUT = (url, thongtin) => {
+        return axios({
+            method: "put",
+            url: `${URL_API}${url}`,
+            data: thongtin,
+            headers: {
+                TokenCybersoft: TOKEN,
+            }
+        })
+    }
+
 }
