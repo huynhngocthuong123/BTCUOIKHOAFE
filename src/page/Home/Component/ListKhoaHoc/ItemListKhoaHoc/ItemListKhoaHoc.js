@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from 'react'
 
 export default function ItemListKhoaHoc(props) {
-    // console.log(props)
     let [heart, setHeart] = useState(false);
     let { khoaHoc, key } = props
     return (

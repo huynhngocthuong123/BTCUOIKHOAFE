@@ -1,4 +1,5 @@
 import { KHService } from "../../Service/KhoaHocService"
+import { LAY_DS_KH } from "./typeAction/courseType"
 
 export const GetDoanhMucAction = async (setState) => {
     try {
@@ -10,13 +11,18 @@ export const GetDoanhMucAction = async (setState) => {
         console.log(error)
     }
 }
-export const GetKhoaHocAction = async (setState) => {
-    try {
-        const result = await KHService.ListKhoaHoc()
-        if (result.status === 200) {
-            setState(result.data)
+export const GetKhoaHocAction = () => {
+    return async (dispatch) => {
+        try {
+            const result = await KHService.ListKhoaHoc()
+            if (result.status === 200) {
+                await dispatch({
+                    type: LAY_DS_KH,
+                    arrayCourse: result.data,
+                })
+            }
+        } catch (error) {
+            console.log(error)
         }
-    } catch (error) {
-        console.log(error)
     }
 }

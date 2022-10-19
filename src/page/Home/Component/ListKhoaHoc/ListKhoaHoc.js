@@ -1,23 +1,25 @@
 import React, { Fragment, useEffect, useState } from 'react'
+import { useDispatch, useSelector } from "react-redux"
 import { GetKhoaHocAction } from '../../../../Redux/action/ListKhoaHocAction'
 import ItemListKhoaHoc from './ItemListKhoaHoc/ItemListKhoaHoc'
 import "./ListKhoaHoc.scss"
+import courseReducer from '../../../../Redux/Reducers/CourseReducer'
 
 export default function ListKhoaHoc() {
-    let [khoaHoc, setKhoaHoc] = useState([]);
+    const dispatch = useDispatch()
+    const { course } = useSelector((state) => state.courseReducer)
+    console.log(course, "thấy")
     let [showmore, setShowMore] = useState(8);
-    const Slice = khoaHoc.slice(0, showmore)
-    console.log(Slice, "thành công")
+    const sliceCourse = course.slice(0, showmore)
     useEffect(() => {
-        GetKhoaHocAction(setKhoaHoc)
+        dispatch(GetKhoaHocAction())
     }, [])
-    console.log(khoaHoc)
+
     return (
         <div className='List_khoahoc xl:container mx-auto'>
-
             <h1 className='title-content text-center pb-9'>DOANH SÁCH KHÓA HỌC</h1>
             <div className="class_list grid grid-cols-4 gap-y-10">
-                {Slice.map((khoaHoc, index) => {
+                {sliceCourse.map((khoaHoc, index) => {
                     return <div className="card" key={index}>
                         <ItemListKhoaHoc khoaHoc={khoaHoc} />
                     </div>
