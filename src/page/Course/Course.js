@@ -9,6 +9,7 @@ import "./Course.scss"
 export default function Course() {
     const dispatch = useDispatch()
     let [searchParams, setSearchParams] = useSearchParams();
+    console.log(searchParams.get("course"))
     let { courseFilter } = useSelector((state) => state.courseReducer)
     console.log(courseFilter, "danh sách lọc")
     const allCourse = {

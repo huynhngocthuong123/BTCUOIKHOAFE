@@ -1,3 +1,4 @@
+import { CHI_TIET_KH } from "../action/Type/KHTypes"
 import { FILTER_COURSE, LAY_DS_KH } from "../action/typeAction/courseType"
 const allCourse = {
     maDanhMuc: 'all',
@@ -7,7 +8,8 @@ const allCourse = {
 }
 const initialState = {
     course: [],
-    courseFilter: []
+    courseFilter: [],
+    detailCourse: [],
 }
 export const courseReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -22,6 +24,10 @@ export const courseReducer = (state = initialState, action) => {
                 const datafilter = state.course.filter((item) => item.danhMucKhoaHoc.maDanhMucKhoahoc === action.key)
                 state.courseFilter = datafilter
             }
+            return { ...state }
+        case CHI_TIET_KH:
+            const dataFilter = state.course.filter((item) => item.tenKhoaHoc === action.dataId)
+            state.detailCourse = dataFilter
             return { ...state }
         default:
             return state

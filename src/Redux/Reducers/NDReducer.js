@@ -6,12 +6,9 @@ const initialState = {
 
 export const NDReducer = (state = initialState, action) => {
     switch (action.type) {
-
         case DANG_KY:
             state.NDRegister = action.NDRegister
             return { ...state }
-
-
         default:
             return state
     }

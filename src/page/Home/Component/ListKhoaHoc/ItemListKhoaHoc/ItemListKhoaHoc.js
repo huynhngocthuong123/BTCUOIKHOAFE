@@ -1,6 +1,12 @@
 import React, { Fragment, useState } from 'react'
+import { useDispatch } from 'react-redux';
+import { Link, NavLink } from 'react-router-dom';
+import { history } from '../../../../../App';
+import Detail from '../../../../detailKH/Detail';
+import { CHI_TIET_KH } from '../../../../../Redux/action/Type/KHTypes';
 
 export default function ItemListKhoaHoc(props) {
+    const dispatch = useDispatch()
     let [heart, setHeart] = useState(false);
     let { khoaHoc, key } = props
     return (
@@ -50,8 +56,21 @@ export default function ItemListKhoaHoc(props) {
                     </div>
                 </div>
                 <div className="hover--bottom flex justify-between px-3">
-                    <button className='btn_info'>Hiển thị chi tiết</button>
-                    <button className='btn_info okok'>Ghi Danh</button>
+                    <Link to={{
+                        pathname: '/detail',
+                        search: `?detail=${khoaHoc.tenKhoaHoc}`,
+                    }} onClick={() => {
+                        console.log("khóa học truyền", khoaHoc)
+                        dispatch({
+                            type: CHI_TIET_KH,
+                            dataId: khoaHoc.tenKhoaHoc
+                        })
+
+                    }}
+                        className='btn_info'>Hiển thị chi tiết</Link>
+                    <button onClick={() => {
+                        console.log("khóa học truyền", khoaHoc)
+                    }} className='btn_info okok'>Ghi Danh</button>
                 </div>
             </div>
         </Fragment >

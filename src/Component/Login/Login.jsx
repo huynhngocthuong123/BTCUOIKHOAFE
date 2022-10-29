@@ -8,7 +8,6 @@ import { Link, NavLink } from 'react-router-dom';
 import { DangKyAction, DangNhapAction } from '../../Redux/action/NDAction';
 import { useNavigate } from "react-router-dom"
 export default function Login(props) {
-    const navigate = useNavigate();
     const dispatch = useDispatch()
     const formik = useFormik({
         initialValues: {

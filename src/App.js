@@ -16,28 +16,29 @@ import Register from './Component/Register/Register';
 import Login from './Component/Login/Login';
 import Course from './page/Course/Course';
 import Carousel from './page/Home/Component/Carousel/Carousel';
+import Detail from './page/detailKH/Detail';
+import Footer from './Component/Footer/Footer';
 
 export const history = createBrowserHistory();
 function App() {
   return (
-    <BrowserRouter history={history} >
-      <Routes>
-        <Route exact path="/" element={<Home />} >
-          {/* <Route exact path="/contact" element={<Contact />} /> */}
-        </Route>
+    <Router history={history} >
+      <Header />
+      <Routes >
+        <Route exact path="/" element={<Home />} ></Route>
+        <Route exact path="/course" element={<Course />} />
+        <Route exact path='/detail' element={<Detail />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/login" element={<Login />} />
-        {/* </Routes> */}
+      </Routes>
+      <Routes>
         <Route element={<AdminTemplate />}>
           <Route path='/admin' element={<AdminKhoahoc />} />
           <Route path='/admin/addkh' element={<AddKH />} />
           <Route path='/admin/:id' element={<EditKH />} />
         </Route>
       </Routes>
-      {/* <Route exact path='/admin' component/> */}
-      {/* <Header /> */}
-      {/* <Home /> */}
-    </ BrowserRouter>
+    </ Router >
   );
 }
 

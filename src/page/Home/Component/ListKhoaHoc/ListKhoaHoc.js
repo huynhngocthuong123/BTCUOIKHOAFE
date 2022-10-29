@@ -8,7 +8,6 @@ import courseReducer from '../../../../Redux/Reducers/CourseReducer'
 export default function ListKhoaHoc() {
     const dispatch = useDispatch()
     const { course } = useSelector((state) => state.courseReducer)
-    console.log(course, "thấy")
     let [showmore, setShowMore] = useState(8);
     const sliceCourse = course.slice(0, showmore)
     useEffect(() => {

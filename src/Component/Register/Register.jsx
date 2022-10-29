@@ -27,7 +27,6 @@ export default function Register() {
             // .matches(/^[A-Z a-z]+$/, "Họ tên không hợp lệ")
         }),
         onSubmit: values => {
-            console.log("du lieu", values)
             dispatch(DangKyAction(values))
         },
     });
